@@ -1,0 +1,16 @@
+GOALS:
+
+1. How to interact with 3rd party APIs (eg. Fake Store Api)
+   Product service (1st requirement)
+    - add product
+    - get list of products
+
+Takeaways:
+ - @PathVariable: used to map the request URI to a Java method argument
+ - @RequestBody: used to map the request body to a Java object
+ - Jackson library: used to convert JSON to Java object and vice versa
+ - RestTemplate: used to make HTTP requests to 3rd party APIs
+ - ResponseEntity: used to return HTTP status code and response body
+ - MultiValueMap: used to send form data or headers in HTTP request body
+ - Conversion from "list" of json objects to "list" of java objects gives an error because of generics. Generics by default does not remember the type at runtime. Hence, instead of using "List<Class_Name>", we use "Class_Name[]".
+ - ResponseEntity's getBody(): used for getting the response body

@@ -1,8 +1,8 @@
 package com.example.ecommerce.controllers;
 
-import com.example.ecommerce.dtos.ProductDto;
+import com.example.ecommerce.dtos.ThirdPartyProductDto;
 import com.example.ecommerce.models.Product;
-import com.example.ecommerce.services.ProductService;
+import com.example.ecommerce.services.ThirdPartyProductService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,22 +20,22 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {    // will always answer to "/products"
 
-    private ProductService productService;
+    private ThirdPartyProductService thirdPartyProductService;
 
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    public ProductController(ThirdPartyProductService thirdPartyProductService) {
+        this.thirdPartyProductService = thirdPartyProductService;
     }
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
-        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
+        return new ResponseEntity<>(thirdPartyProductService.getAllProducts(), HttpStatus.OK);
     }
 
     @GetMapping("/{productId}")     // way - 1
     public ResponseEntity<Product> getSingleProduct(@PathVariable Long productId){  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
         try {
-            Product product = productService.getSingleProduct(productId);      // Spring internally is doing the conversion from object to json using jackson library while sending back the request
+            Product product = thirdPartyProductService.getSingleProduct(productId);      // Spring internally is doing the conversion from object to json using jackson library while sending back the request
 
             // for setting response headers
             MultiValueMap<String,String> headers = new LinkedMultiValueMap<>();
@@ -49,8 +49,14 @@ public class ProductController {    // will always answer to "/products"
     }
 
     @PostMapping("/add-product")
-    public ResponseEntity<Product> addNewProduct(@RequestBody ProductDto productDto){
-        Product product = productService.addNewProduct(productDto);
+    public ResponseEntity<Product> addNewProduct(@RequestBody ThirdPartyProductDto thirdPartyProductDto){
+        Product product = thirdPartyProductService.addNewProduct(thirdPartyProductDto);
+        return new ResponseEntity<>(product,HttpStatus.OK);
+    }
+
+    @PatchMapping("/update-product/{productId}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @RequestBody ThirdPartyProductDto thirdPartyProductDto){
+        Product product = thirdPartyProductService.updateProduct(productId, thirdPartyProductDto);
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
 

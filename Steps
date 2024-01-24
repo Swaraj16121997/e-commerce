@@ -4,7 +4,7 @@ GOALS:
    Product service (1st requirement)
     - add product
     - get list of products
-2. Implement facade (client class) for 3rd party rest template methods
+2. Implement facade (3rd party client class) for rest template methods
 3. Create global exception handler
 
 Takeaways:

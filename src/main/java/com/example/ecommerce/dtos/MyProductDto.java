@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FakeStoreProductDto extends ClientProductDto{
+public class MyProductDto extends ClientProductDto{
     private Long id;
     private String title;
     private double price;

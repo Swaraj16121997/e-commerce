@@ -1,12 +1,16 @@
 package com.example.ecommerce.controllers;
 
+import com.example.ecommerce.dtos.ClientProductDto;
 import com.example.ecommerce.dtos.FakeStoreProductDto;
+import com.example.ecommerce.dtos.MyProductDto;
 import com.example.ecommerce.models.Product;
 import com.example.ecommerce.services.ClientProductService;
 import com.example.ecommerce.services.FakeStoreProductService;
+import com.example.ecommerce.services.MyProductService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
@@ -21,12 +25,9 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {    // will always answer to "/products"
 
-    private ClientProductService clientProductService;
-
+    @Qualifier("myProductService")  // to tell spring to initialise specific product service to avoid ambiguity
     @Autowired
-    public ProductController(FakeStoreProductService fakeStoreProductService) {
-        this.clientProductService = fakeStoreProductService;
-    }
+    private ClientProductService clientProductService;
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
@@ -52,6 +53,12 @@ public class ProductController {    // will always answer to "/products"
     @PostMapping("/add-product")
     public ResponseEntity<Product> addNewProduct(@RequestBody FakeStoreProductDto fakeStoreProductDto){
         Product product = clientProductService.addNewProduct(fakeStoreProductDto);
+        return new ResponseEntity<>(product,HttpStatus.OK);
+    }
+
+    @PostMapping("/add-my-product")
+    public ResponseEntity<Product> addMyProduct(@RequestBody MyProductDto myProductDto){
+        Product product = clientProductService.addNewProduct(myProductDto);
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
 

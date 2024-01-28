@@ -1,6 +1,7 @@
 package com.example.ecommerce.services;
 
 import com.example.ecommerce.clients.FakeStoreClient;
+import com.example.ecommerce.dtos.ClientProductDto;
 import com.example.ecommerce.dtos.FakeStoreProductDto;
 import com.example.ecommerce.models.Category;
 import com.example.ecommerce.models.Product;
@@ -8,15 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RequestCallback;
-import org.springframework.web.client.ResponseExtractor;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -48,14 +41,14 @@ public class FakeStoreProductService implements ClientProductService {
     }
 
     @Override
-    public Product addNewProduct(FakeStoreProductDto fakeStoreProductDto) {
-        FakeStoreProductDto fakeStoreProductDTO = fakeStoreClient.addNewProduct(fakeStoreProductDto);
+    public Product addNewProduct(ClientProductDto clientProductDto) {
+        FakeStoreProductDto fakeStoreProductDTO = fakeStoreClient.addNewProduct((FakeStoreProductDto) clientProductDto);
         return getProduct(fakeStoreProductDTO);  // good practice to return back the object in the response body once product is added successfully
     }
 
     @Override
-    public Product updateProduct(Long productId, FakeStoreProductDto fakeStoreProductDto) {
-        FakeStoreProductDto fakeStoreProductDTO = fakeStoreClient.updateProduct(productId, fakeStoreProductDto);
+    public Product updateProduct(Long productId, ClientProductDto clientProductDto) {
+        FakeStoreProductDto fakeStoreProductDTO = fakeStoreClient.updateProduct(productId, (FakeStoreProductDto) clientProductDto);
         return getProduct(fakeStoreProductDTO);
     }
 

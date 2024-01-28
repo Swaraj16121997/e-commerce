@@ -17,3 +17,9 @@ Takeaways:
  - Conversion from "list" of json objects to "list" of java objects gives an error because of generics. Generics by default does not remember the type at runtime. Hence, instead of using "List<Class_Name>", we use "Class_Name[]".
  - ResponseEntity's getBody(): used for getting the response body
  - @ControllerAdvice: used to handle exceptions globally
+ - Hibernate is an ORM (Object Relational Mapping) library
+ - Repository is a DAO (Data Access Object) pattern which is responsible for interacting with the database
+ - Application Flow: Client -> Controller -> Service -> Repository -> JPA -> Hibernate -> JDBC -> MySQL Driver -> Database
+ - @SpringBootApplication(exclude={DataSourceAutoConfiguration.class}): Used to by-pass spring hibernate library's datasource configurations
+ - @Qualifier:
+ - @ManyToOne(cascade = CascadeType.ALL): used to tell jpa to simulataneously map objects/rows to the tables/classes which is having some cardinality with the current class/table

@@ -1,4 +1,12 @@
 package com.example.ecommerce.dtos;
 
-public interface ClientProductDto {
+import com.example.ecommerce.models.Rating;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public abstract class ClientProductDto {
 }

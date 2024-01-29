@@ -21,5 +21,18 @@ Takeaways:
  - Repository is a DAO (Data Access Object) pattern which is responsible for interacting with the database
  - Application Flow: Client -> Controller -> Service -> Repository -> JPA -> Hibernate -> JDBC -> MySQL Driver -> Database
  - @SpringBootApplication(exclude={DataSourceAutoConfiguration.class}): Used to by-pass spring hibernate library's datasource configurations
- - @Qualifier:
- - @ManyToOne(cascade = CascadeType.ALL): used to tell jpa to simulataneously map objects/rows to the tables/classes which is having some cardinality with the current class/table
+ - @Qualifier: used to specify which bean to use when there are multiple beans of the same type
+ - @ManyToOne(cascade = CascadeType.ALL): used to tell jpa to simultaneously map objects/rows to the tables/classes which is having some cardinality with the current class/table
+ - UUID: version 4 and 7. version 4 is random and version 7 is time based. 128 bit long. 32 hexadecimal digits. 4 bits for version and 2 bits for variant. 122 bits for random number.
+ - @GeneratedValue(strategy = GenerationType.AUTO): used to tell jpa to automatically generate the primary key value
+ - @GeneratedValue(strategy = GenerationType.IDENTITY): used to tell jpa to automatically generate the primary key value using the database's auto increment feature
+
+WAYS TO REPRESENT INHERITANCE IN JPA:
+
+ - @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS): used to tell jpa to create a table for each class in the inheritance hierarchy
+ - @Inheritance(strategy = InheritanceType.SINGLE_TABLE): used to tell jpa to create a single table for all the classes in the inheritance hierarchy. May lead to a sparse table.
+ - @DiscriminatorColumn(name = "<discriminator-column-name, eg. user_type>", discriminatorType = DiscriminatorType.INTEGER): used to tell jpa to create a column in the table which will store the class name of the object
+ - @DiscriminatorValue("<discriminator-value, eg. 1>"): used to tell jpa to store the value of the discriminator column as the specified value. Basically the way we map enums in the database for efficiency.
+ - @Inheritance(strategy = InheritanceType.JOINED): used to tell jpa to create a table for each class in the inheritance hierarchy and also create a table for the parent class. The parent class table will have the common attributes of all the child classes. The child class tables will have the attributes specific to them. The child class tables will have a foreign key to the parent class table.
+ - @PrimaryKeyJoinColumn(name = "<foreign-key-column-name, eg. user_id>"): used to tell jpa to create a foreign key column in the child class table which will refer to the primary key column of the parent class table
+ - @MappedSuperclass: used to tell jpa to not create a table for the class as this class will be used as a parent class for other classes. The attributes of this class will be inherited by the child classes. The child classes will have their own tables. You can't use @Entity and @MappedSuperclass together.

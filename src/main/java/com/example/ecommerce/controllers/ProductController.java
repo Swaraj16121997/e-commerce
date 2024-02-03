@@ -35,7 +35,7 @@ public class ProductController {    // will always answer to "/products"
     }
 
     @GetMapping("/{productId}")     // way - 1
-    public ResponseEntity<Product> getSingleProduct(@PathVariable Long productId){  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
+    public ResponseEntity<Product> getSingleProduct(@PathVariable Long productId) {  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
         try {
             Product product = clientProductService.getSingleProduct(productId);      // Spring internally is doing the conversion from object to json using jackson library while sending back the request
 

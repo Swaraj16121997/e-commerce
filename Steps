@@ -36,6 +36,7 @@ Takeaways:
  - Between FetchType and FetchMode, FetchMode is given more priority. For example, if we use @ManyToOne(fetch = FetchType.LAZY) and @Fetch(FetchMode.JOIN), then the child entities will be fetched in a single query.
  - Optional<>: used to avoid NullPointerException. If the object is present, then it will return the object. If the object is not present, then it will return null.
  - JPA Queries are simple english queries which are converted to SQL queries by the JPA provider (Hibernate).
+ - @Query(<sql-query>): used to write custom JPA queries. We can use this annotation to write complex queries which are not possible using the JPA method naming convention.
 
 WAYS TO REPRESENT INHERITANCE IN JPA:
 
@@ -46,3 +47,54 @@ WAYS TO REPRESENT INHERITANCE IN JPA:
  - @Inheritance(strategy = InheritanceType.JOINED): used to tell jpa to create a table for each class in the inheritance hierarchy and also create a table for the parent class. The parent class table will have the common attributes of all the child classes. The child class tables will have the attributes specific to them. The child class tables will have a foreign key to the parent class table.
  - @PrimaryKeyJoinColumn(name = "<foreign-key-column-name, eg. user_id>"): used to tell jpa to create a foreign key column in the child class table which will refer to the primary key column of the parent class table
  - @MappedSuperclass: used to tell jpa to not create a table for the class as this class will be used as a parent class for other classes. The attributes of this class will be inherited by the child classes. The child classes will have their own tables. You can't use @Entity and @MappedSuperclass together.
+
+SCHEMA VERSIONING AND MIGRATION:
+
+ - If you use spring.jpa.hibernate.ddl-auto=validate, then hibernate will validate the schema with the entity classes. If the schema is not valid, then hibernate will throw an exception.
+   That means if you change the entity class, then you will have to manually update the schema in the database, else it will throw an exception.
+ - To manually create the DDL script you can make use of JPA Buddy which will generate an SQL script for you. Click on JPA Explorer -> '+' sign -> Generate DDL by entities -> DB Schema initialization. This way you can have initial DDL script.
+ - For any modifications in the entity classes you again Click on JPA Explorer -> '+' sign -> Generate DDL by entities -> Existing DB Update (Diff). This DDL script will contain queries related only to the modifications you made to the entity class.
+ - So this way now you have different versions of your schema. Now you'll have the freedom to rollback as well if you want to.
+ - You must use "Flyway" OR "Liquibase" maven dependencies. These dependencies will help you maintain the schema versioning and migration by creating the initial schema, updating the schema, rolling back the schema to a previous version, etc.
+
+TESTING
+
+ - Unit Testing -> Integration Testing -> Functional Testing
+ - Unit Testing: used to test the smallest part of the code. For example, a method or a class. We test the method or class in isolation. We don't test the interaction between the methods or classes. We use mock objects to test the method or class in isolation.
+ - Integration Testing: used to test the interaction between the methods or classes. We test the interaction between the methods or classes. We don't test the method or class in isolation. We use the actual objects to test the interaction between the methods or classes.
+ - Functional Testing: used to test the functionality of the application. We test the application as a whole, i.e, from end-to-end. We test the application from the user's perspective. We test the application's functionality, usability, and user interface.
+ - @SpringbootTest: used to tell JUnit that the class is a spring boot test class
+ - @Test: used to tell JUnit that the method is a test method
+ - Good practice of naming the test methods: test<method-name>_when<condition>_then<expected-behavior>
+ - Unit Testing: It has 3 phases (A-A-A / C-C-C) :-
+    1) Arrange / Create: To set up the test. We create object of the class whose method is to be tested
+    2) Act / Call: To perform the test. We call the method to be tested
+    3) Assert / Check: To verify the result. We check the result. For eg., assert(<expression>) / assertEquals(expected, actual) is used to compare the expected and actual values
+ - Frameworks we mainly use for Unit Testing: JUnit5 and Mockito
+ - @DisplayName("<test-case-name>"): used to give a custom name to the test case for better readability and understanding
+ - assertThrows(<exception-class>, () -> <method-call>): used to tell JUnit that the method should throw the specified exception which we are expecting.
+ - Test Suite: used to run multiple test classes together. We can create a test suite by creating a class and adding the test classes to it. We can run the test suite to run all the test classes together.
+ - Mocking: used to create a fake object of a class. We use mock objects to test the method or class in isolation.
+    - @Mock: used to create a mock object. We use @InjectMocks annotation to inject the mock object into the actual object. For eg., Student class need Pen class object to perform its write operation. So, we mock the Pen class and inject it into the Student class.
+    - @MockBean: used to create a mock object of a class. We use mock objects to test the method or class in isolation. We use @MockBean annotation to create a mock object. We use @Autowired annotation to inject the mock object into the actual object.
+ - @WebMvcTest(<controller-class-name>.class): We use this annotation to test the web layer of the application. We use this annotation to test the controller class in isolation, to test the interaction between the controller class and the service class or repository class or database.
+ - mockMvc.perform(get("/<url>")): We use this method to perform the HTTP request like GET, POST, PUT, DELETE requests.
+ - ObjectMapper: It is a package provided by Jackson library to convert the Java object to JSON and vice versa. We use this class to convert the response body to a Java object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

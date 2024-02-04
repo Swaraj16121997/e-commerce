@@ -20,6 +20,7 @@ import java.util.List;
 public class FakeStoreProductService implements ClientProductService {
 
     private RestTemplateBuilder restTemplateBuilder;
+
     @Autowired
     private FakeStoreClient fakeStoreClient;
 

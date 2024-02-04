@@ -1,6 +1,7 @@
 package com.example.ecommerce.clients;
 
 import com.example.ecommerce.dtos.FakeStoreProductDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 public class FakeStoreClient {
     private RestTemplateBuilder restTemplateBuilder;
 
+    @Autowired
     public FakeStoreClient(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplateBuilder = restTemplateBuilder;
     }

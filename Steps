@@ -80,8 +80,13 @@ TESTING
  - @WebMvcTest(<controller-class-name>.class): We use this annotation to test the web layer of the application. We use this annotation to test the controller class in isolation, to test the interaction between the controller class and the service class or repository class or database.
  - mockMvc.perform(get("/<url>")): We use this method to perform the HTTP request like GET, POST, PUT, DELETE requests.
  - ObjectMapper: It is a package provided by Jackson library to convert the Java object to JSON and vice versa. We use this class to convert the response body to a Java object.
-
-
+ - Doubles:
+     - Mocks: hard code the methods
+     - Stubs: hard code the behavior
+     - Fakes: hard code the major systems
+ - Hamcrest Matchers: used to write assertions in a more readable way. For example, assertThat(actual, is(equalTo(expected))) is used to compare the expected and actual values.
+ - AssertJ Library: used to write assertions in a more readable way. For example, assertThat(actual).isEqualTo(expected) is used to compare the expected and actual values.
+ - ArgumentCaptor: used to capture the argument of a method. We use this class to verify the argument of a method. We use @Captor annotation to create an argument captor.
 
 
 

@@ -29,6 +29,9 @@ public class ProductController {    // will always answer to "/products"
     @Autowired
     private ClientProductService clientProductService;
 
+//    @Autowired
+//    private FakeStoreProductService fakeStoreProductService;  //    This is just for the purpose of argumentCaptor test case
+
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
         return new ResponseEntity<>(clientProductService.getAllProducts(), HttpStatus.OK);
@@ -37,6 +40,9 @@ public class ProductController {    // will always answer to "/products"
     @GetMapping("/{productId}")     // way - 1
     public ResponseEntity<Product> getSingleProduct(@PathVariable Long productId) {  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
         try {
+//            The below line of code is just for argumentCaptor test case purpose as "thenCallRealMethod()" is not applicable on interface's object, it's applicable only on a concrete class's object. Hence, uncomment the below loc and comment the loc just after the below one. Remember to reverse it back once you're done with the testing.
+//            Product product = fakeStoreProductService.getSingleProduct(productId);
+
             Product product = clientProductService.getSingleProduct(productId);      // Spring internally is doing the conversion from object to json using jackson library while sending back the request
 
             // for setting response headers

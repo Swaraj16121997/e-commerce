@@ -88,7 +88,21 @@ TESTING
  - AssertJ Library: used to write assertions in a more readable way. For example, assertThat(actual).isEqualTo(expected) is used to compare the expected and actual values.
  - ArgumentCaptor: used to capture the argument of a method. We use this class to verify the argument of a method. We use @Captor annotation to create an argument captor.
 
+AUTHENTICATION & AUTHORIZATION
 
+ - OAuth: used to authenticate and authorize the user. It is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. OAuth 2.0 is the industry-standard protocol for authorization which is currently most commonly used.
+ - Authorization Server: used to authenticate the user and provide the access token to the client (any website which conducts the OAuth). The client uses the access token to access the resources of the resource server.
+ - Resource Server: used to provide the resources to the client. It cross-verifies the access token provided by the client, with the authorization server and then provides the resources to the client.
+ - Mostly all companies have their own authorization server for their resource server. For example, Google has its own authorization server for its resource server. Some companies use third-party authorization servers like Okta, Ory-Hydra, etc.
+ - How OAuth works:
+    1) The client requests authorization from the user (After we authenticate ourselves using our Google login credentials on a website, the website requests authorization from us to access resources of our Google account.)
+    2) The user authorizes the client (We authorize the website to access our Google account.)
+    3) The client requests an access token from the authorization server (The website requests an access token from Google's authorization server)
+    4) The authorization server provides an access token to the client (Google's authorization server provides an access token to the website.)
+    5) The client requests the resource from the resource server (The website requests the resource(s) from Google's resource server using the access token.)
+    6) The resource server provides the resource to the client (Google's resource server provides the resource to the website.)
+
+ - Why we need JWT (JSON Web Token)? Because, OAuth 2.0 does not specify the format of the access token. It only specifies the way to get the access token. So, we need a format to represent the access token. JWT is a format to represent the access token. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
 
 
 

@@ -1,13 +1,16 @@
-GOALS:
+DELIVERABLES:
 
 1. How to interact with 3rd party APIs (eg. Fake Store Api)
-   Product service (1st requirement)
-    - add product
-    - get list of products
+   Product service (1st requirement): CRUD operations
 2. Implement facade (3rd party client class) for rest template methods
 3. Create global exception handler
+4. How to interact with databases (eg. MySQL)
+5. Test the application using JUnit and Mockito
+6. User service (2nd requirement): CRUD operations
+7. How to authenticate and authorize the user using OAuth 2.0
 
-Takeaways:
+GENERAL NOTES:
+
  - @PathVariable: used to map the request URI to a Java method argument
  - @RequestBody: used to map the request body to a Java object
  - Jackson library: used to convert JSON to Java object and vice versa
@@ -102,10 +105,13 @@ AUTHENTICATION & AUTHORIZATION
     5) The client requests the resource from the resource server (The website requests the resource(s) from Google's resource server using the access token.)
     6) The resource server provides the resource to the client (Google's resource server provides the resource to the website.)
 
- - Why we need JWT (JSON Web Token)? Because, OAuth 2.0 does not specify the format of the access token. It only specifies the way to get the access token. So, we need a format to represent the access token. JWT is a format to represent the access token. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
-
-
-
+ - Why we need JWT (JSON Web Token)? Because, OAuth 2.0 does not specify the format of the access token. It only specifies the way to get the access token. So, we need a format to represent the access token. If each token is not formatted in a standard way, then for each request, out of millions of requests, the authorization server will have to make a database call everytime in order to verify the token. Hence, this method is inefficient and time consuming when we are dealing with millions of requests. Here's where JWT comes into picture.
+ - JWT is a format to represent the access token, i.e, the token itself contains the required information which now makes it possible for the resource server to validate the token itself. The authorization server no more needs to make a call to the database everytime for each request.
+ - JWT has 3 parts: Header, Payload, Signature. The header contains the type of the token and the algorithm used to sign the token. The payload contains the claims (the data that user wants to share, for eg., username, session, expiry, etc.). The signature is a data (usually combination of header and payload) encrypted using a secret key, which is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way. All these 3 parts are encoded in base64 format and concatenated with a dot.
+ - The working flow of JWt is as follows:
+    1) The secret key is shared between the user or client (on behalf of the user) and the resource server.
+    2) After the user receives the access token from the authorization server, it sends the access token to the resource server.
+    3) The resource server decodes the access token. It first generates a signature by itself using the header and payload of the decoded access token and the shared secret key it already has, then it compares the generated signature with the signature present in the decoded access token. If both the signatures match, then the access token is valid and the resource server provides the resource to the user or the client (on behalf of the user). Hence, like this, the resource server is able to validate that the token which was provided to the user was provided by the authorization server and was not tampered with.
 
 
 

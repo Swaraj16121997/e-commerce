@@ -40,6 +40,7 @@ GENERAL NOTES:
  - Optional<>: used to avoid NullPointerException. If the object is present, then it will return the object. If the object is not present, then it will return null.
  - JPA Queries are simple english queries which are converted to SQL queries by the JPA provider (Hibernate).
  - @Query(<sql-query>): used to write custom JPA queries. We can use this annotation to write complex queries which are not possible using the JPA method naming convention.
+ - @Configuration: used to tell spring that the class is a configuration class. It is used for java based configuration.
 
 WAYS TO REPRESENT INHERITANCE IN JPA:
 
@@ -113,11 +114,12 @@ AUTHENTICATION & AUTHORIZATION
     2) After the user receives the access token from the authorization server, it sends the access token to the resource server.
     3) The resource server decodes the access token. It first generates a signature by itself using the header and payload of the decoded access token and the shared secret key it already has, then it compares the generated signature with the signature present in the decoded access token. If both the signatures match, then the access token is valid and the resource server provides the resource to the user or the client (on behalf of the user). Hence, like this, the resource server is able to validate that the token which was provided to the user was provided by the authorization server and was not tampered with.
 
-
-
-
-
-
+ - spring-boot-starter-security dependency: used to enable the security in all the resource endpoints of the application by default. It provides the default security configuration like default login page, logout page, etc.
+ - As by default spring security is enabled, we need to disable it in order to use our own custom security configuration. Hence we create out own filtering criteria.
+ - Whenever you create a configuration class each of the methods have to be annotated with @Bean. This is because, the methods are used to create the beans (IOC) and these beans are then used internally by the spring framework wherever required because we don't know where the beans are to be autowired and used.
+ - IOC (Inversion Of Control): It is a design principle in which the control of the object creation is transferred to a container or framework. It is the opposite of the normal control flow of the program. In normal control flow, the programmer creates the objects and uses them. In IOC, the container or framework creates the objects and gives them to the programmer to use. The container or framework which is responsible for creating the objects and managing their life cycle is called the IOC container or framework.
+ - Difference between @Bean and @Component: Use @Bean when you want to create a bean of a class which is not under your control. Use @Component (@Service/@Repository/@Controller) when you want to create a bean of a class which is under your control.
+ - Example of a scenario where we need the use of @Bean: Suppose you want a service to connect to two different Databases or Repositories, Production and Staging. You have two different classes for the two different databases. With the normal @Autowired annotation, you'll be unable to create two different objects of that same service class for two different purposes. Hence, you use @Bean("<custom_bean_name>") annotation, one for prod and one for staging purpose, to create two different objects of that service class.
 
 
 

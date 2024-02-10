@@ -41,6 +41,7 @@ GENERAL NOTES:
  - JPA Queries are simple english queries which are converted to SQL queries by the JPA provider (Hibernate).
  - @Query(<sql-query>): used to write custom JPA queries. We can use this annotation to write complex queries which are not possible using the JPA method naming convention.
  - @Configuration: used to tell spring that the class is a configuration class. It is used for java based configuration.
+ - TRIVIAL FLAW TO AVOID: Always remember to implement exception handling whenever you are coding (mainly during service layer).
 
 WAYS TO REPRESENT INHERITANCE IN JPA:
 
@@ -78,6 +79,8 @@ TESTING
  - @DisplayName("<test-case-name>"): used to give a custom name to the test case for better readability and understanding
  - assertThrows(<exception-class>, () -> <method-call>): used to tell JUnit that the method should throw the specified exception which we are expecting.
  - Test Suite: used to run multiple test classes together. We can create a test suite by creating a class and adding the test classes to it. We can run the test suite to run all the test classes together.
+ - @Suite annotation is used to tell JUnit that the class is a test suite class and @SelectClasses({<test-class1-name>.class, <test-class2-name>.class}...) annotation is used to tell JUnit to run the specified test classes in that test suite class.
+ - @SelectPackages({"test-package1-name", "test-package2-name", ...}): used to tell JUnit to run all the test classes in the specified packages.
  - Mocking: used to create a fake object of a class. We use mock objects to test the method or class in isolation.
     - @Mock: used to create a mock object. We use @InjectMocks annotation to inject the mock object into the actual object. For eg., Student class need Pen class object to perform its write operation. So, we mock the Pen class and inject it into the Student class.
     - @MockBean: used to create a mock object of a class. We use mock objects to test the method or class in isolation. We use @MockBean annotation to create a mock object. We use @Autowired annotation to inject the mock object into the actual object.
@@ -113,6 +116,7 @@ AUTHENTICATION & AUTHORIZATION
     1) The secret key is shared between the user or client (on behalf of the user) and the resource server.
     2) After the user receives the access token from the authorization server, it sends the access token to the resource server.
     3) The resource server decodes the access token. It first generates a signature by itself using the header and payload of the decoded access token and the shared secret key it already has, then it compares the generated signature with the signature present in the decoded access token. If both the signatures match, then the access token is valid and the resource server provides the resource to the user or the client (on behalf of the user). Hence, like this, the resource server is able to validate that the token which was provided to the user was provided by the authorization server and was not tampered with.
+ - Can we use a custom formatted token for authorization? Yes, we can use. Using JWT is not mandatory but JWT is the most widely used format to represent the access token. The problem with custom formatted token is that the resource server will have to make a database call everytime for each request in order to validate the token.
 
  - spring-boot-starter-security dependency: used to enable the security in all the resource endpoints of the application by default. It provides the default security configuration like default login page, logout page, etc.
  - As by default spring security is enabled, we need to disable it in order to use our own custom security configuration. Hence we create out own filtering criteria.
@@ -120,7 +124,7 @@ AUTHENTICATION & AUTHORIZATION
  - IOC (Inversion Of Control): It is a design principle in which the control of the object creation is transferred to a container or framework. It is the opposite of the normal control flow of the program. In normal control flow, the programmer creates the objects and uses them. In IOC, the container or framework creates the objects and gives them to the programmer to use. The container or framework which is responsible for creating the objects and managing their life cycle is called the IOC container or framework.
  - Difference between @Bean and @Component: Use @Bean when you want to create a bean of a class which is not under your control. Use @Component (@Service/@Repository/@Controller) when you want to create a bean of a class which is under your control.
  - Example of a scenario where we need the use of @Bean: Suppose you want a service to connect to two different Databases or Repositories, Production and Staging. You have two different classes for the two different databases. With the normal @Autowired annotation, you'll be unable to create two different objects of that same service class for two different purposes. Hence, you use @Bean("<custom_bean_name>") annotation, one for prod and one for staging purpose, to create two different objects of that service class.
-
+ - Session: It is used to store the user's data across multiple requests, multiple pages, multiple sessions, multiple tabs, multiple browsers, multiple devices, multiple logins, multiple computers, multiple networks, multiple locations, multiple time zones, multiple countries, multiple continents, etc.
 
 
 

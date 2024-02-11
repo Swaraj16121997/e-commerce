@@ -74,7 +74,7 @@ public class AuthService {
 
 //        String token = Jwts.builder().content(content).signWith(key, alg).compact();    // the JWT created now, will have the header part(having the signature algo name) and the signature part, along with the payload
 
-        // for the payload(user info) part of the JWT creation
+        // create the payload(user info) part of the JWT
         Map<String, Object> jsonForJwt = new HashMap<>();
         jsonForJwt.put("email", user.getEmail());
         jsonForJwt.put("roles", user.getRoles());

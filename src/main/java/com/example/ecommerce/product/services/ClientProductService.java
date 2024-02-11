@@ -2,6 +2,7 @@ package com.example.ecommerce.product.services;
 
 import com.example.ecommerce.product.dtos.ClientProductDto;
 import com.example.ecommerce.product.models.Product;
+import com.example.ecommerce.product.security.JwtObject;
 
 import java.util.List;
 

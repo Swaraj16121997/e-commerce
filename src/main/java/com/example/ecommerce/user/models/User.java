@@ -2,6 +2,7 @@ package com.example.ecommerce.user.models;
 
 import com.example.ecommerce.user.dtos.UserDto;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +16,7 @@ import java.util.Set;
 public class User extends BaseModel {
     private String email;
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
     public static UserDto from(User user) {

@@ -130,7 +130,7 @@ AUTHENTICATION & AUTHORIZATION
    Sessions are more secure than cookies as it is stored on the server side. Cookies stored data in text file. Session save data in encrypted form.
  - CORS (Cross Origin Resource Sharing): It is used to tell the browser to allow the client to access the resources of the server from a different origin. For eg., client makes a call to 'X' website and 'X' website makes a call to 'Y' website, where the origin of the request is not of website 'Y' it's of the client itself. Here, the client has no knowledge of his request being made to a different origin (website 'Y') internally, while making a request to website 'X', hence, we must let the user know and ask for user's permission to make that call to a different origin server for him. So like this, CORS is used to allow the client to access the resources of the server from a different origin.
    Remember, the CORS request is a client's request to the third-party server of a different origin and NOT the second-party server's request to the third-party server of different origin.
-
+ - Spring Authorization Server Library: It's a framework that provides implementations for the OAuth 2.1 and OpenID Connect protocols. It is used to create an authorization server. It is used to authenticate the user and provide the access token to the client. The client uses the access token to access the resources of the resource server.
 
 
 

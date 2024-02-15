@@ -27,7 +27,8 @@ import java.util.Optional;
 @RequestMapping("/products")
 public class ProductController {    // will always answer to "/products"
 
-    @Qualifier("myProductService")  // to tell spring to initialise specific product service to avoid ambiguity
+//    @Qualifier("myProductService")  // to tell spring to initialise specific product service to avoid ambiguity
+    @Qualifier("fakeStoreProductService")
     @Autowired
     private ClientProductService clientProductService;
     @Autowired
@@ -41,9 +42,10 @@ public class ProductController {    // will always answer to "/products"
         return new ResponseEntity<>(clientProductService.getAllProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("/{productId}")     // way - 1
+    @GetMapping("/{productId}")
 //  In order to validate user token in the product service, we need take it as an argument in the product controller in this way: getSingleProduct(@Nullable @RequestHeader(HttpHeaders.AUTHORIZATION) String authToken, @PathVariable Long productId) throws Exception
-    public ResponseEntity<Product> getSingleProduct(@PathVariable Long productId){  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
+//  Once we shift from in-memory token storage to token storage in our DB, we will no longer require to pass auth token as an argument as shown in the comment above
+    public ResponseEntity<Product> getSingleProduct(@PathVariable("productId") Long productId){  // dispatcher servlet infos like status code, response body etc. on top of this while sending back the response.
         try {
 //            JwtObject jwtObject = null;
 //            if(authToken != null){
@@ -61,11 +63,12 @@ public class ProductController {    // will always answer to "/products"
             Product product = clientProductService.getSingleProduct(productId);      // Spring internally is doing the conversion from object to json using jackson library while sending back the request
 
             // for setting response headers
-            MultiValueMap<String,String> headers = new LinkedMultiValueMap<>();
-            headers.add("Content-Type", "application/json");
-            headers.add("auth-token", "some_random_token");
+//            MultiValueMap<String,String> headers = new LinkedMultiValueMap<>();
+//            headers.add("Content-Type", "application/json");
+//            headers.add("auth-token", "some_random_token");
+//            return new ResponseEntity<>(product, headers, HttpStatus.OK);
 
-            return new ResponseEntity<>(product, headers, HttpStatus.OK);
+            return new ResponseEntity<>(product, HttpStatus.OK);
         } catch (Exception exception){
             throw exception;
         }

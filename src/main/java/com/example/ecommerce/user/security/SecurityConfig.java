@@ -43,7 +43,7 @@ import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfig {   // template of this class is available in the "spring-authorization-server" spring documentation page
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -73,15 +73,32 @@ public class SecurityConfig {
 
     @Bean
     @Order (2)
-    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
-            throws Exception {
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeHttpRequests((authorize) -> authorize
+//                        .anyRequest().authenticated())
+//                // Form login handles the redirect to the login page from the
+//                // authorization server filter chain
+//                .formLogin(Customizer.withDefaults());
+
+        // to apply oauth 2.0 JWT auth ONLY on all the product service resources (as product service is acting as one of our resource servers). Rest all the resources are permitted.
         http
-                .authorizeHttpRequests((authorize) -> authorize
-                        .anyRequest().authenticated()
-                )
-                // Form login handles the redirect to the login page from the
-                // authorization server filter chain
-                .formLogin(Customizer.withDefaults());
+                .cors(cors -> cors.disable())
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests((authorize) -> {
+                    authorize.requestMatchers("/products/*").authenticated();
+                    authorize.anyRequest().permitAll();
+                })
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
+
+        // to allow Admin only to access the product service resources
+//        http
+//                .cors(cors -> cors.disable())
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests((authorize) -> authorize
+//                        .requestMatchers("/products/*")
+//                        .hasAuthority("Admin")
+//                        .anyRequest().permitAll());
 
         return http.build();
     }
@@ -97,23 +114,24 @@ public class SecurityConfig {
 //        return new InMemoryUserDetailsManager(userDetails);
 //    }
 
-    @Bean
-    public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("oidc-client")
-                .clientSecret("{noop}secret")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/oidc-client")
-                .postLogoutRedirectUri("http://127.0.0.1:8080/")
-                .scope(OidcScopes.OPENID)
-                .scope(OidcScopes.PROFILE)
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
-                .build();
-
-        return new InMemoryRegisteredClientRepository(oidcClient);
-    }
+//    @Bean
+//    public RegisteredClientRepository registeredClientRepository() {
+//        RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
+//                .clientId("client")
+//                .clientSecret(bCryptPasswordEncoder.encode("secret"))
+//                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+//                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+//                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+//                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+//                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/oidc-client")
+//                .postLogoutRedirectUri("http://127.0.0.1:8080/")
+//                .scope(OidcScopes.OPENID)
+//                .scope(OidcScopes.PROFILE)
+//                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+//                .build();
+//
+//        return new InMemoryRegisteredClientRepository(oidcClient);  // It is not recommended to save tokens in memory (i.e, within our local system). We need a persistent storage for this, which is our database. Hence, we need to implement the core services of Spring Authorization Server with JPA (Follow its spring documentation).
+//    }
 
     @Bean
     public JWKSource<SecurityContext> jwkSource() {

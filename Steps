@@ -131,7 +131,18 @@ AUTHENTICATION & AUTHORIZATION
  - CORS (Cross Origin Resource Sharing): It is used to tell the browser to allow the client to access the resources of the server from a different origin. For eg., client makes a call to 'X' website and 'X' website makes a call to 'Y' website, where the origin of the request is not of website 'Y' it's of the client itself. Here, the client has no knowledge of his request being made to a different origin (website 'Y') internally, while making a request to website 'X', hence, we must let the user know and ask for user's permission to make that call to a different origin server for him. So like this, CORS is used to allow the client to access the resources of the server from a different origin.
    Remember, the CORS request is a client's request to the third-party server of a different origin and NOT the second-party server's request to the third-party server of different origin.
  - Spring Authorization Server Library: It's a framework that provides implementations for the OAuth 2.1 and OpenID Connect protocols. It is used to create an authorization server. It is used to authenticate the user and provide the access token to the client. The client uses the access token to access the resources of the resource server.
-
-
-
+ - OAuth 2.0 Client Credentials Grant: The Client Credentials grant type is used by clients to obtain an access token outside of the context of a user. This is typically used by clients to access resources about themselves rather than to access a user's resources.
+ - Spring provides the following interfaces for us to implement:
+    - UserDetails: used to provide the user's data to the spring security
+    - UserDetailsService: used to load the user's data from the database
+    - GrantedAuthority: used to provide the user's roles (or any parameter which is being used as an authority) to the spring security.
+ - Summary of interaction between User and Product service:
+    - SignUp: User ----> Auth Server
+    - Login: User ----> Auth Server
+    - Sharing of token: Auth Server ---> User
+    - Request resource with the shared token: User ----> Resource Server (Product Service) "/products/*"
+        - If Token Valid:
+            - If role matches: ALLOW
+            - Else: DENY
+        - If Token invalid: DENY
 

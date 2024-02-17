@@ -76,6 +76,7 @@ public class SecurityConfig {   // template of this class is available in the "s
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 //        http
 //                .authorizeHttpRequests((authorize) -> authorize
+//                        .requestMatchers("/actuator/**").permitAll()
 //                        .anyRequest().authenticated())
 //                // Form login handles the redirect to the login page from the
 //                // authorization server filter chain

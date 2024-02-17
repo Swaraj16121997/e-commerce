@@ -1,3 +1,5 @@
+------------------------------------------BASICS---------------------------------------------------------
+
 DELIVERABLES:
 
 1. How to interact with 3rd party APIs (eg. Fake Store Api)
@@ -10,6 +12,7 @@ DELIVERABLES:
 7. How to authenticate and authorize the user using OAuth 2.0
 8. How to use JWT (JSON Web Token) for authorization
 9. How product service interacts with user service for authorization.
+10. Implementing payment gateway (3rd requirement)
 
 GENERAL NOTES:
 
@@ -145,4 +148,29 @@ AUTHENTICATION & AUTHORIZATION
             - If role matches: ALLOW
             - Else: DENY
         - If Token invalid: DENY
+
+---------------------------------------------ADVANCE-----------------------------------------------------
+
+ - EC2 (Elastic Compute Cloud): It is a web service that provides secure, resizable compute capacity in the cloud. It provides the virtual servers in the cloud.
+ - RDS (Relational Database Service): It is a web service that provides the relational database in the cloud (eg., MySql, etc.). It provides the managed database in the cloud.
+ - Elastic Beanstalk: To quickly deploy and manage applications in the AWS Cloud without having to learn about the infrastructure that runs those applications. It thus reduces management complexity without restricting choice or control. You simply upload your application (your project's JAR file), and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
+    - How to create a JAR file: Go to maven panel -> Lifecycle -> double click on package (you can toggle 'Skip Tests' mode before doing this). The JAR file will be created in the target folder of the project.
+ - Instance profile: Just like roles (collection of permissions via policies) get attached to an IAM user to grant/revoke resource access rights to a particular user, instance profiles are roles that get attached to instances.
+ - Security Groups: Set of rules to control inbound and outbound traffic for an instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your VPC can be assigned to a different set of security groups.
+ - Create RDS and make the datasource configurations accordingly in your application.properties file.
+ - Spring Boot Actuator: It is a sub-project of Spring Boot. It adds several production grade services (like monitoring our app, gathering metrics, and understanding traffic or the state of our database, etc.) to your application with little effort on your part. In this case, we are using it to monitor the health of our application.
+ - Beanstalk's environment variables: It is used to store sensitive information (like database username, password, etc.), configuration information (like database URL, port, etc.), environment specific information (like environment name, environment id, etc.), application specific information (like application name, application version, etc.), etc. We then use these environment variables in our application.properties file via property placeholders. Similarly, we can configure environment variables in our local machine as well. We can do this by going to the run configuration of our project in the IDE and then adding the environment variables in the environment variables section.
+ - VPC (Virtual Private Cloud): It is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud. You can launch your AWS resources, such as EC2 instances, into your VPC. You can then configure the security groups and network access control lists to provide secure and controlled access to your instances.
+
+
+
+
+
+
+
+
+
+
+
+
 

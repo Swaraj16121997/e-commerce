@@ -12,7 +12,8 @@ DELIVERABLES:
 7. How to authenticate and authorize the user using OAuth 2.0
 8. How to use JWT (JSON Web Token) for authorization
 9. How product service interacts with user service for authorization.
-10. Implementing payment gateway (3rd requirement)
+10. How to deploy the application on AWS (Amazon Web Services)
+11. Implementing payment gateway (3rd requirement)
 
 GENERAL NOTES:
 
@@ -149,7 +150,7 @@ AUTHENTICATION & AUTHORIZATION
             - Else: DENY
         - If Token invalid: DENY
 
----------------------------------------------ADVANCE-----------------------------------------------------
+DEPLOYMENT ON CLOUD (AWS)
 
  - EC2 (Elastic Compute Cloud): It is a web service that provides secure, resizable compute capacity in the cloud. It provides the virtual servers in the cloud.
  - RDS (Relational Database Service): It is a web service that provides the relational database in the cloud (eg., MySql, etc.). It provides the managed database in the cloud.
@@ -162,6 +163,7 @@ AUTHENTICATION & AUTHORIZATION
  - Beanstalk's environment variables: It is used to store sensitive information (like database username, password, etc.), configuration information (like database URL, port, etc.), environment specific information (like environment name, environment id, etc.), application specific information (like application name, application version, etc.), etc. We then use these environment variables in our application.properties file via property placeholders. Similarly, we can configure environment variables in our local machine as well. We can do this by going to the run configuration of our project in the IDE and then adding the environment variables in the environment variables section.
  - VPC (Virtual Private Cloud): It is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud. You can launch your AWS resources, such as EC2 instances, into your VPC. You can then configure the security groups and network access control lists to provide secure and controlled access to your instances.
 
+---------------------------------------------ADVANCE-----------------------------------------------------
 
 
 

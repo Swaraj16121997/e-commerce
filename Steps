@@ -13,7 +13,7 @@ DELIVERABLES:
 8. How to use JWT (JSON Web Token) for authorization
 9. How product service interacts with user service for authorization.
 10. How to deploy the application on AWS (Amazon Web Services)
-11. Implementing payment gateway (3rd requirement)
+11. Payment Service (3rd requirement): integrating with 3rd party payment gateway
 
 GENERAL NOTES:
 
@@ -140,6 +140,7 @@ AUTHENTICATION & AUTHORIZATION
     - UserDetails: used to provide the user's data to the spring security
     - UserDetailsService: used to load the user's data from the database
     - GrantedAuthority: used to provide the user's roles (or any parameter which is being used as an authority) to the spring security.
+ - When we use hasAuthority("<role-name>") method in the default security configuration using granted authorities, spring does not know how to convert the user's role name (which is present in the JWT's "claims" part), for checking and granting the authority to that user. Hence, we need to create a custom converter for the same, which implements the Converter<Jwt, AbstractAuthenticationToken> interface.
  - Summary of interaction between User and Product service:
     - SignUp: User ----> Auth Server
     - Login: User ----> Auth Server

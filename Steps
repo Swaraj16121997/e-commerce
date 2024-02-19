@@ -13,7 +13,7 @@ DELIVERABLES:
 8. How to use JWT (JSON Web Token) for authorization
 9. How product service interacts with user service for authorization.
 10. How to deploy the application on AWS (Amazon Web Services)
-11. Payment Service (3rd requirement): integrating with 3rd party payment gateway
+11. Payment Service (3rd requirement): integrating with 3rd party payment gateways (Razorpay and Stripe)
 
 GENERAL NOTES:
 
@@ -166,10 +166,31 @@ DEPLOYMENT ON CLOUD (AWS)
 
 ---------------------------------------------ADVANCE-----------------------------------------------------
 
+PAYMENT
 
+ - Interaction between the client, order and payment service:
+    1) The client (via the frontend page of a website) orders a product from the product service. Product service provides the productId and the payment details back to the client.
+    2) Client then requests to pay for his order which consist of the product he wants to purchase. The productId against that orderId is then provided to the payment service.
+    3) The payment service verifies the product with the product service against the productId.
+    4) After successful verification, the payment service makes a call to its preferred payment gateway (RazorPay or Stripe) which it has chosen and selected, asking for a link to the payment page.
+    5) This link is then provided back to the client. The client then makes the payment through this link.
+    6) Payment details gets updated (via webhook) in the payment service.
+    7) Order details gets updated (after validation) in the order service
 
+ - Now, how will the website know that the payment made through the link provided by the payment gateway was successful or not?
+    1) It will be known through a callback URL. Callback URL is a URL which will be provided by the website to the payment gateway.
+    2) The payment gateway will send a POST request to the website's callback URL with the payment details of that order (like payment status (success/failure), orderId, etc.).
+    3) The website will then call the payment service to update the payment details against the said orderId and validate it with the order service (because 1 order can have multiple payments, hence, we need to check complete payment has been made for that order).
+    4) On successful validation, the order service will update the order status to "PAID".
+    5) Now, the website will also update the order status to "PAID".
 
+ - Webhook URL/API: A URL or an API which the payment service REST API will provide to the payment gateway, so that instead of website making a call to the payment service (3rd step in the above mentioned steps), the payment gateway can directly call the payment service's webhook URL/API.
+ - LocalTunnel: It is a tool which allows you to expose your localhost to the internet. It is used to expose the webhook URL/API of the payment service to the payment gateway. This is done because the payment gateway needs to make a call to the webhook URL/API of the payment service.
+                  1) Start a webserver on some local port (eg http://localhost:9000) and use the command line interface to request a tunnel to your local server: lt --port 9000
+                  2) You will receive a url, for example https://flkajsfljas.loca.lt, that you can share with anyone (here, the payment gateway) for as long as your local instance of lt remains active. Any requests will be routed to your local service at the specified port.
 
+ - For implementation of creating a payment link in your code, follow the 3rd party payment gateway documentation on their website.
+ - In order to have a RazorPay client, you need to have a RazorPay account. After creating an account (not a business account a software developer's one), you will get a key_id and key_secret. These keys are used to authenticate the client with the RazorPay server. You can then use these keys to create a RazorPay client.
 
 
 

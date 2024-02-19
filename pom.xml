@@ -118,6 +118,16 @@
             <artifactId>spring-security-cas</artifactId>
             <version>5.7.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.razorpay</groupId>
+            <artifactId>razorpay-java</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.stripe</groupId>
+            <artifactId>stripe-java</artifactId>
+            <version>24.6.0</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PaymentGatewayStrategySelector {
-    @Autowired
-    private RazorPayPaymentGatewayStrategy razorPayPaymentGatewayStrategy;
 //    @Autowired
-//    private StripePaymentGatewayStrategy stripePaymentGatewayStrategy;
+//    private RazorPayPaymentGatewayStrategy razorPayPaymentGatewayStrategy;
+    @Autowired
+    private StripePaymentGatewayStrategy stripePaymentGatewayStrategy;
 
 
     public PaymentGatewayStrategy getBestPaymentGateway() {
@@ -19,7 +19,7 @@ public class PaymentGatewayStrategySelector {
 //            return razorpayPaymentGateway;
 //        }
 //
-//        return stripePaymentGateway;
-        return razorPayPaymentGatewayStrategy;
+        return stripePaymentGatewayStrategy;
+//        return razorPayPaymentGatewayStrategy;
     }
 }

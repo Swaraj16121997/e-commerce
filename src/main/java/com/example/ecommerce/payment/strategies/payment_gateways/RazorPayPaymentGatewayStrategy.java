@@ -3,15 +3,13 @@ package com.example.ecommerce.payment.strategies.payment_gateways;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RazorPayPaymentGatewayStrategy implements PaymentGatewayStrategy{
-
+    @Autowired
     private RazorpayClient razorpayClient;  // similar to the way the FakeStore Client had been created, RazorPay is exposing us its client
-    public RazorPayPaymentGatewayStrategy(RazorpayClient razorpayClient) {
-        this.razorpayClient = razorpayClient;
-    }
     @Override
     public String generatePaymentLink(String orderId, String email, String phoneNumber, Long amount) {
         try {

@@ -176,7 +176,6 @@ PAYMENT
     5) This link is then provided back to the client. The client then makes the payment through this link.
     6) Payment details gets updated (via webhook) in the payment service.
     7) Order details gets updated (after validation) in the order service
-
  - Now, how will the website know that the payment made through the link provided by the payment gateway was successful or not?
     1) It will be known through a callback URL. Callback URL is a URL which will be provided by the website to the payment gateway.
     2) The payment gateway will send a POST request to the website's callback URL with the payment details of that order (like payment status (success/failure), orderId, etc.).
@@ -188,10 +187,28 @@ PAYMENT
  - LocalTunnel: It is a tool which allows you to expose your localhost to the internet. It is used to expose the webhook URL/API of the payment service to the payment gateway. This is done because the payment gateway needs to make a call to the webhook URL/API of the payment service.
                   1) Start a webserver on some local port (eg http://localhost:9000) and use the command line interface to request a tunnel to your local server: lt --port 9000
                   2) You will receive a url, for example https://flkajsfljas.loca.lt, that you can share with anyone (here, the payment gateway) for as long as your local instance of lt remains active. Any requests will be routed to your local service at the specified port.
-
  - For implementation of creating a payment link in your code, follow the 3rd party payment gateway documentation on their website.
  - In order to have a RazorPay client, you need to have a RazorPay account. After creating an account (not a business account a software developer's one), you will get a key_id and key_secret. These keys are used to authenticate the client with the RazorPay server. You can then use these keys to create a RazorPay client.
  - Idempotency in Computer Science: It is the principle where an operation can be performed multiple times without changing the result beyond the initial application. It is important in the context of payment gateways because if the payment gateway makes a call to the webhook URL/API of the payment service and the payment service is down, then the payment gateway will make the call again and again until the payment service is up. In this case, the payment service should not process the same request again and again. It should process the request only once. Hence, the payment gateway should send an idempotency key with the request to the webhook URL/API of the payment service. The payment service should check the idempotency key and process the request only once. The payment gateway should generate a new idempotency key for each request.
+
+SEARCHING, PAGING AND SORTING
+
+ - Pagination: It is used to divide the records into pages and sort the records. We can divide the records into pages and sort the records based on the specified criteria. For example, we can divide the records into pages based on the number of records per page and sort the records based on the name, email, etc.
+ - How will database handle the pagination and sorting?
+    - The database will handle the pagination and sorting based on the specified criteria. For example, if we specify the number of records per page as 10 and the page number as 1, then the database will return the first 10 records. If we specify the number of records per page as 10 and the page number as 2, then the database will return the next 10 records. If we specify the sorting criteria as the name, then the database will sort the records based on the name.
+    - The database will use offset and limit to handle the pagination. The offset is the number of records to skip and the limit is the number of records to return. For example, if we specify the number of records per page as 10 and the page number as 1, then the offset will be 0 and the limit will be 10. If we specify the number of records per page as 10 and the page number as 2, then the offset will be 10 and the limit will be 10.
+ -
+
+
+
+
+
+
+
+
+
+
+
 
 
 

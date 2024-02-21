@@ -183,7 +183,7 @@ PAYMENT
     3) The website will then call the payment service to update the payment details against the said orderId and validate it with the order service (because 1 order can have multiple payments, hence, we need to check complete payment has been made for that order).
     4) On successful validation, the order service will update the order status to "PAID".
     5) Now, the website will also update the order status to "PAID".
-
+ - To increase assurance regarding payment details, along with the concept of callback URL we shall use the concept of Webhook too. So instead of completely relying on the callback URL, we can also get the payment related details via webhook. Hence, increases reliability and reduces dependency on frontend.
  - Webhook URL/API: A URL or an API which the payment service REST API will provide to the payment gateway, so that instead of website making a call to the payment service (3rd step in the above mentioned steps), the payment gateway can directly call the payment service's webhook URL/API.
  - LocalTunnel: It is a tool which allows you to expose your localhost to the internet. It is used to expose the webhook URL/API of the payment service to the payment gateway. This is done because the payment gateway needs to make a call to the webhook URL/API of the payment service.
                   1) Start a webserver on some local port (eg http://localhost:9000) and use the command line interface to request a tunnel to your local server: lt --port 9000
@@ -191,7 +191,7 @@ PAYMENT
 
  - For implementation of creating a payment link in your code, follow the 3rd party payment gateway documentation on their website.
  - In order to have a RazorPay client, you need to have a RazorPay account. After creating an account (not a business account a software developer's one), you will get a key_id and key_secret. These keys are used to authenticate the client with the RazorPay server. You can then use these keys to create a RazorPay client.
-
+ - Idempotency in Computer Science: It is the principle where an operation can be performed multiple times without changing the result beyond the initial application. It is important in the context of payment gateways because if the payment gateway makes a call to the webhook URL/API of the payment service and the payment service is down, then the payment gateway will make the call again and again until the payment service is up. In this case, the payment service should not process the same request again and again. It should process the request only once. Hence, the payment gateway should send an idempotency key with the request to the webhook URL/API of the payment service. The payment service should check the idempotency key and process the request only once. The payment gateway should generate a new idempotency key for each request.
 
 
 

@@ -32,7 +32,7 @@ public class StripePaymentGatewayStrategy implements PaymentGatewayStrategy{
 
         Map<String, Object> params1 = new HashMap<>();
         params1.put("unit_amount", amount);
-        params1.put("currency", "inr");
+        params1.put("currency", "usd");
         params1.put("product", product.getId());
 
         Price price = null;
@@ -50,14 +50,14 @@ public class StripePaymentGatewayStrategy implements PaymentGatewayStrategy{
         Map<String, Object> params2 = new HashMap<>();
         params2.put("line_items", lineItems);
 
-//        Map<String, Object> redirect = new HashMap<>();
-//        redirect.put("url", "https://www.google.com/");
-//
-//        Map<String, Object> afterComp = new HashMap<>();
-//        afterComp.put("type", "redirect");
-//        afterComp.put("redirect", redirect);
-//
-//        params2.put("after_completion", afterComp);
+        Map<String, Object> redirect = new HashMap<>();
+        redirect.put("url", "https://www.google.com/");     // ideally, the redirect url shall be of your frontend or website's url
+
+        Map<String, Object> afterComp = new HashMap<>();
+        afterComp.put("type", "redirect");
+        afterComp.put("redirect", redirect);
+
+        params2.put("after_completion", afterComp);
 
         PaymentLink paymentLink = null;
         try {

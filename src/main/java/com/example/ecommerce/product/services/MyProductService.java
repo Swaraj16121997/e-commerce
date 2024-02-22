@@ -4,6 +4,7 @@ import com.example.ecommerce.product.dtos.ClientProductDto;
 import com.example.ecommerce.product.dtos.MyProductDto;
 import com.example.ecommerce.product.models.Category;
 import com.example.ecommerce.product.models.Product;
+//import com.example.ecommerce.product.repositories.ProductElasticSearchRepository;
 import com.example.ecommerce.product.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ public class MyProductService implements ClientProductService{
 
     @Autowired
     ProductRepository productRepository;
+//    @Autowired
+//    ProductElasticSearchRepository productElasticSearchRepository;
 
     @Override
     public Product getSingleProduct(Long productId) {
@@ -30,6 +33,7 @@ public class MyProductService implements ClientProductService{
     @Override
     public Product addNewProduct(ClientProductDto clientProductDto) {
         return productRepository.save(getProduct((MyProductDto) clientProductDto));
+//        return productElasticSearchRepository.save(getProduct((MyProductDto) clientProductDto));
     }
 
     @Override

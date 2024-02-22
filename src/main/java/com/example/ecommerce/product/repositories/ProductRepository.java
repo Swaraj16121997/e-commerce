@@ -1,6 +1,8 @@
 package com.example.ecommerce.product.repositories;
 
 import com.example.ecommerce.product.models.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +15,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     Product findByPriceBetween(double greaterThan, double lessThan);
     List<Product> findByIdIsNotNullOrderByPrice();
     List<Product> findAllByIsPublicFalse();
+
+//    List<Product> findByTitleEquals(String title);
+    List<Product> findByTitleEquals(String title, Pageable pageable);
 }

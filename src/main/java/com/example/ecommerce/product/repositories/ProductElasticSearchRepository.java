@@ -12,6 +12,7 @@
 //public interface ProductElasticSearchRepository extends ElasticsearchRepository<Product, Long> {
 //    Iterable<Product> findAllByTitleEquals(String title);
 //
+//    // ElasticSearch custom query (JSON string format)
 //    @Query("{\n" +
 //            "  \"query\": {\n" +
 //            "    \"match\": {\n" +

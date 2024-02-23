@@ -197,9 +197,20 @@ SEARCHING, PAGING AND SORTING
  - How will database handle the pagination and sorting?
     - The database will handle the pagination and sorting based on the specified criteria. For example, if we specify the number of records per page as 10 and the page number as 1, then the database will return the first 10 records. If we specify the number of records per page as 10 and the page number as 2, then the database will return the next 10 records. If we specify the sorting criteria as the name, then the database will sort the records based on the name.
     - The database will use offset and limit to handle the pagination. The offset is the number of records to skip and the limit is the number of records to return. For example, if we specify the number of records per page as 10 and the page number as 1, then the offset will be 0 and the limit will be 10. If we specify the number of records per page as 10 and the page number as 2, then the offset will be 10 and the limit will be 10.
+ - The default sorting order used by pagination is ascending order of the primary key. If you want to use a different sorting order, then you will have to specify the sorting order in the query.
+ - Difference between ElasticSearch and OpenSearch: ElasticSearch is a search engine based on the Lucene library. It provides a distributed, multi-tenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. OpenSearch is a fork of ElasticSearch. It is a community-driven, open-source search and analytics suite derived from Apache 2.0 licensed ElasticSearch 7.10.2 & Kibana 7.10.2. It is used to search, analyze, and visualize data in real-time.
+ - How Relational Database gets mapped with ElasticSearch:
+        - Database is Index
+        - Table is Type
+        - Row is Document
+        - Column is Fields
+        - Schema is Mapping
+ - How to use ElasticSearch/OpenSearch in Spring Boot: (for integrating with amazon-aws's OpenSearch you need to create a domain in the AWS console and then use the endpoint of that domain in the application.properties file)
+    1) Add the dependency in the pom.xml file
+    2) Create an entity class and annotate it with @Document, @Id, @Field, etc.
+    3) Create a repository interface and extend it with the ElasticsearchRepository interface
+    4) Use the methods of the ElasticsearchRepository interface to perform the CRUD operations
  -
-
-
 
 
 

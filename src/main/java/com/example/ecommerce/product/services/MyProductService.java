@@ -32,8 +32,9 @@ public class MyProductService implements ClientProductService{
 
     @Override
     public Product addNewProduct(ClientProductDto clientProductDto) {
-        return productRepository.save(getProduct((MyProductDto) clientProductDto));
-//        return productElasticSearchRepository.save(getProduct((MyProductDto) clientProductDto));
+        this.productRepository.save(getProduct((MyProductDto) clientProductDto));
+//        this.productElasticSearchRepository.save(getProduct((MyProductDto) clientProductDto));
+        return getProduct((MyProductDto) clientProductDto);
     }
 
     @Override

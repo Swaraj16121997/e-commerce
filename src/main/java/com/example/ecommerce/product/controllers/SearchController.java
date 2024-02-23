@@ -24,10 +24,10 @@ public class SearchController {
     public List<SearchResponseDto> searchProducts(@RequestBody SearchRequestDto searchRequestDto) {
 
 //        List<Product> result = searchService.searchProducts(searchRequestDto.getQuery(),
-//                searchRequestDto.getPageNumber(), searchRequestDto.getSizeOfPage(), searchRequestDto.getSortParamList());
+//                searchRequestDto.getPageNumber(), searchRequestDto.getSizeOfPage());
 
         List<Product> result = searchService.searchProducts(searchRequestDto.getQuery(),
-                searchRequestDto.getPageNumber(), searchRequestDto.getSizeOfPage());
+                searchRequestDto.getPageNumber(), searchRequestDto.getSizeOfPage(), searchRequestDto.getSortParamList());
 
         List<SearchResponseDto> shareableResult = new LinkedList<>();
         for(Product product : result) {

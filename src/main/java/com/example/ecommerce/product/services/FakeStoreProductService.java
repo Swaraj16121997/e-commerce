@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -18,20 +19,21 @@ import java.util.List;
 @Setter
 @Service
 public class FakeStoreProductService implements ClientProductService {
-
+    @Autowired
     private RestTemplateBuilder restTemplateBuilder;
-
     @Autowired
     private FakeStoreClient fakeStoreClient;
-
     @Autowired
-    public FakeStoreProductService(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplateBuilder = restTemplateBuilder;
-    }
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Override
     public Product getSingleProduct(Long productId){
+        FakeStoreProductDto fakeStoreChache = (FakeStoreProductDto) redisTemplate.opsForHash().get("PRODUCTS", productId);     // this means look for productId in the "PRODUCTS" table within the cache
+        if(fakeStoreChache != null)
+            return getProduct(fakeStoreChache);
+
         FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.getSingleProduct(productId);
+        redisTemplate.opsForHash().put("PRODUCTS",productId,fakeStoreProductDto);
         return getProduct(fakeStoreProductDto);
     }
 

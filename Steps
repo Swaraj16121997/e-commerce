@@ -210,8 +210,12 @@ SEARCHING, PAGING AND SORTING
     2) Create an entity class and annotate it with @Document, @Id, @Field, etc.
     3) Create a repository interface and extend it with the ElasticsearchRepository interface
     4) Use the methods of the ElasticsearchRepository interface to perform the CRUD operations
- -
 
+DEDICATED CACHING (AWS REDIS CACHE)
+
+ - Serializable: It is a marker interface. It is used to tell the JVM that the class can be serialized. It is used to convert the object to a byte stream and vice versa. It is used to store the object in the cache. The object is stored in the cache as a byte stream. The byte stream is then converted back to the object when we retrieve the object from the cache.
+ - In a cache you can have different tables for any kind of key-value pairs. For example, within the Product Entity itself, you can have "PRODUCTS" having the key as the product id and the value as the product object. Similarly, you can have "PRODUCTS_BY_NAME" having the key as the product name and the value as the product object, etc.
+ - Before starting your service which is using Redis Cache, you need to start the Redis Cache, either on your local system or on aws and configure the same in your application.properties file.
 
 
 

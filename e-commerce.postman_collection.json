@@ -1,0 +1,2127 @@
+{
+	"info": {
+		"_postman_id": "f9eb0f11-ac5f-4fc8-9c9b-66a714805898",
+		"name": "e-commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12577495"
+	},
+	"item": [
+		{
+			"name": "Get Single Product using Fakestore API",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Single Product using Fakestore API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Contect-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "auth-token",
+							"value": "some_random_token"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Jan 2024 10:49:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\n    \"price\": 109.95,\n    \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"men's clothing\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Products using Fakestore API",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Products using Fakestore API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Jan 2024 11:12:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\n        \"price\": 109.95,\n        \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"men's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 2,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Mens Casual Premium Slim Fit T-Shirts \",\n        \"price\": 22.3,\n        \"description\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"men's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 3,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Mens Cotton Jacket\",\n        \"price\": 55.99,\n        \"description\": \"great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"men's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 4,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Mens Casual Slim Fit\",\n        \"price\": 15.99,\n        \"description\": \"The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"men's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 5,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet\",\n        \"price\": 695,\n        \"description\": \"From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"jewelery\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 6,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Solid Gold Petite Micropave \",\n        \"price\": 168,\n        \"description\": \"Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"jewelery\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 7,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"White Gold Plated Princess\",\n        \"price\": 9.99,\n        \"description\": \"Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"jewelery\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 8,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Pierced Owl Rose Gold Plated Stainless Steel Double\",\n        \"price\": 10.99,\n        \"description\": \"Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"jewelery\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 9,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"WD 2TB Elements Portable External Hard Drive - USB 3.0 \",\n        \"price\": 64,\n        \"description\": \"USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 10,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s\",\n        \"price\": 109,\n        \"description\": \"Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 11,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5\",\n        \"price\": 109,\n        \"description\": \"3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 12,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive\",\n        \"price\": 114,\n        \"description\": \"Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 13,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin\",\n        \"price\": 599,\n        \"description\": \"21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 14,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED \",\n        \"price\": 999.99,\n        \"description\": \"49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"electronics\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 15,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats\",\n        \"price\": 56.99,\n        \"description\": \"Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 16,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket\",\n        \"price\": 29.95,\n        \"description\": \"100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 17,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Rain Jacket Women Windbreaker Striped Climbing Raincoats\",\n        \"price\": 39.99,\n        \"description\": \"Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 18,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"MBJ Women's Solid Short Sleeve Boat Neck V \",\n        \"price\": 9.85,\n        \"description\": \"95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 19,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"Opna Women's Short Sleeve Moisture\",\n        \"price\": 7.95,\n        \"description\": \"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    },\n    {\n        \"id\": 20,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"title\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n        \"price\": 12.99,\n        \"description\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n        \"category\": {\n            \"id\": null,\n            \"createdAt\": null,\n            \"lastUpdatedAt\": null,\n            \"name\": \"women's clothing\",\n            \"description\": null,\n            \"productList\": null,\n            \"deleted\": false\n        },\n        \"imageUrl\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\",\n        \"isPublic\": null,\n        \"numberOfUnits\": 0,\n        \"deleted\": false\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Add new product using Fakestore API",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 111,\r\n    \"title\": \"keyboard\",\r\n    \"price\": 109.95,\r\n    \"description\": \"typewriter keyboard\",\r\n    \"category\": \"electronic\",\r\n    \"image\": \"https://i.pravatar.cc/keyboard-typewriter.jpg\",\r\n    \"rating\": {\r\n        \"rate\": 4.2,\r\n        \"count\": 234\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/products/add-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"add-product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new product using Fakestore API",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 111,\r\n    \"title\": \"keyboard\",\r\n    \"price\": 109.95,\r\n    \"description\": \"typewriter keyboard\",\r\n    \"category\": \"electronic\",\r\n    \"image\": \"https://i.pravatar.cc/keyboard-typewriter.jpg\",\r\n    \"rating\": {\r\n        \"rate\": 4.2,\r\n        \"count\": 234\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/add-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"add-product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Jan 2024 12:18:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 21,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"keyboard\",\n    \"price\": 109.95,\n    \"description\": \"typewriter keyboard\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"electronic\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https://i.pravatar.cc/keyboard-typewriter.jpg\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Add new product using a custom service",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 111,\r\n    \"title\": \"keyboard\",\r\n    \"price\": 109.95,\r\n    \"description\": \"typewriter keyboard\",\r\n    \"category\": \"electronic\",\r\n    \"image\": \"https://i.pravatar.cc/keyboard-typewriter.jpg\",\r\n    \"rating\": {\r\n        \"rate\": 4.2,\r\n        \"count\": 234\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/products/add-my-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"add-my-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fakestore API direct endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakestoreapi.com/products/1",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product using Fakestore API",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 14.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"https: //i.pravatar.cc\",\r\n    \"category\": \"electronic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/products/update-product/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"update-product",
+						"7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update product using Fakestore API",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 14.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"https: //i.pravatar.cc\",\r\n    \"category\": \"electronic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/update-product/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"update-product",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Jan 2024 19:43:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 7,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"test product\",\n    \"price\": 14.5,\n    \"description\": \"lorem ipsum set\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"electronic\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https: //i.pravatar.cc\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "User SignUp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User SignUp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj97.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Feb 2024 18:25:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"swaraj97.nair@gmail.com\",\n    \"roles\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "User Login generating random token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"swaraj98.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User Login generating random token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj98.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Set-Cookie",
+							"value": "auth-token:Vo6mYVKGuam8bSC939LVs8c0krIL4Z"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Feb 2024 14:30:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"swaraj98.nair@gmail.com\",\n    \"roles\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate User using random token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"swaraj98.nair@gmail.com\",\r\n    \"token\": \"Vo6mYVKGuam8bSC939LVs8c0krIL4Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"validate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validate User using random token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"swaraj98.nair@gmail.com\",\r\n    \"token\": \"Vo6mYVKGuam8bSC939LVs8c0krIL4Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"validate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Feb 2024 14:51:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "User Login generating JWT without signature",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User Login generating JWT without signature",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj98.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Set-Cookie",
+							"value": "auth-token:eyJhbGciOiJub25lIn0.ewogICAiZW1haWwiOiAic3dhcmFqQGdtYWlsLmNvbSIsCiAgICJyb2xlcyI6IFsKICAgICAgImFkbWluIiwKICAgICAgInVzZXIiCiAgIF0sCiAgICJleHBpcmF0aW9uRGF0ZSI6ICIzMXN0RGVjZW1iZXIyMDI0Igp9."
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Feb 2024 15:17:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"swaraj98.nair@gmail.com\",\n    \"roles\": []\n}"
+				},
+				{
+					"name": "User Login generating JWT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj98.nair@gmail.com\",\r\n    \"password\": \"something\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Set-Cookie",
+							"value": "auth-token:eyJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE3MDc1ODI2NzUwMjksInJvbGVzIjpbXSwiZW1haWwiOiJzd2FyYWo5OC5uYWlyQGdtYWlsLmNvbSIsImV4cGlyYXRpb25EYXRlIjoxNzA3NTgyNjc1MDI5fQ.MA-KcJqPwCHnh36iiZqMzscak364fkF-ewnI5GXvG-0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Feb 2024 16:31:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"swaraj98.nair@gmail.com\",\n    \"roles\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate User using JWT",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"swaraj98.nair@gmail.com\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE3MDc1ODI2NzUwMjksInJvbGVzIjpbXSwiZW1haWwiOiJzd2FyYWo5OC5uYWlyQGdtYWlsLmNvbSIsImV4cGlyYXRpb25EYXRlIjoxNzA3NTgyNjc1MDI5fQ.MA-KcJqPwCHnh36iiZqMzscak364fkF-ewnI5GXvG-0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"validate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validate User using JWT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"swaraj98.nair@gmail.com\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE3MDc1ODI2NzUwMjksInJvbGVzIjpbXSwiZW1haWwiOiJzd2FyYWo5OC5uYWlyQGdtYWlsLmNvbSIsImV4cGlyYXRpb25EYXRlIjoxNzA3NTgyNjc1MDI5fQ.MA-KcJqPwCHnh36iiZqMzscak364fkF-ewnI5GXvG-0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"validate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Feb 2024 16:54:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "client credentials grant type generate token",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://127.0.0.1:9000/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "ecommerce-token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Product using Fakestore API using JWT auth",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://127.0.0.1:9000/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "ecommerce-token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Authorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Feb 2024 11:42:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\n    \"price\": 109.95,\n    \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"men's clothing\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				},
+				{
+					"name": "Forbidden or Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Feb 2024 11:44:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Health Check of the application provided by actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health Check of the application provided by actuator",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.spring-boot.actuator.v3+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 17 Feb 2024 10:24:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get payment link against an Order using Razorpay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"phoneNumber\": \"9899420528\",\r\n    \"amount\": 101.00,\r\n    \"orderId\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/payments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"payments",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get payment link against an Order using Razorpay",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"phoneNumber\": \"9899420528\",\r\n    \"amount\": 101.00,\r\n    \"orderId\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/payments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"payments",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Feb 2024 14:01:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "https://rzp.io/i/KUFNcZp"
+				}
+			]
+		},
+		{
+			"name": "Get payment link against an Order using Stripe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"phoneNumber\": \"9899420528\",\r\n    \"amount\": 1.00,\r\n    \"orderId\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/payments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"payments",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get payment link against an Order using Razorpay Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"swaraj99.nair@gmail.com\",\r\n    \"phoneNumber\": \"9899420528\",\r\n    \"amount\": 101.00,\r\n    \"orderId\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/payments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"payments",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Feb 2024 13:08:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "https://buy.stripe.com/test_8wMbMw0Jd8wVfnO6oo"
+				}
+			]
+		},
+		{
+			"name": "simple search without pagination",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"keyboard\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "simple search without pagination",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": \"keyboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Feb 2024 15:57:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    },\n    {\n        \"id\": 5,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    },\n    {\n        \"id\": 6,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    },\n    {\n        \"id\": 7,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "search with pagination but with default sorting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"keyboard\",\r\n    \"pageNumber\": 0,\r\n    \"sizeOfPage\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "search with pagination but with default sorting",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": \"keyboard\",\r\n    \"pageNumber\": 0,\r\n    \"sizeOfPage\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Feb 2024 16:39:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    },\n    {\n        \"id\": 5,\n        \"title\": \"keyboard\",\n        \"price\": 109.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "search with pagination with custom sorting and custom sorting params",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"keyboard\",\r\n    \"pageNumber\": 1,\r\n    \"sizeOfPage\": 2,\r\n    \"sortParamList\": [\r\n        {\r\n            \"paramName\": \"price\",\r\n            \"sortType\": \"DESC\"\r\n        },\r\n        {\r\n            \"paramName\": \"numberOfUnits\",\r\n            \"sortType\": \"DESC\"\r\n        },\r\n        {\r\n            \"paramName\": \"description\",\r\n            \"sortType\": \"ASC\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "search with pagination with custom sorting and custom sorting params",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": \"keyboard\",\r\n    \"pageNumber\": 1,\r\n    \"sizeOfPage\": 2,\r\n    \"sortParamList\": [\r\n        {\r\n            \"paramName\": \"price\",\r\n            \"sortType\": \"DESC\"\r\n        },\r\n        {\r\n            \"paramName\": \"numberOfUnits\",\r\n            \"sortType\": \"DESC\"\r\n        },\r\n        {\r\n            \"paramName\": \"description\",\r\n            \"sortType\": \"ASC\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Feb 2024 12:20:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 5,\n        \"title\": \"keyboard\",\n        \"price\": 102.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    },\n    {\n        \"id\": 4,\n        \"title\": \"keyboard\",\n        \"price\": 101.95,\n        \"description\": \"typewriter keyboard\",\n        \"image\": null,\n        \"category\": null,\n        \"rating\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Single Product from FakeStore API using JWT and Redis Cache",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://127.0.0.1:9000/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "ecommerce-token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "First Hit to FakeStore API with 3.63 secs response time",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 10:58:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\n    \"price\": 109.95,\n    \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"men's clothing\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				},
+				{
+					"name": "Second hit to Redis Cache with 82 ms response time",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 11:01:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": null,\n    \"lastUpdatedAt\": null,\n    \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\n    \"price\": 109.95,\n    \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\n    \"category\": {\n        \"id\": null,\n        \"createdAt\": null,\n        \"lastUpdatedAt\": null,\n        \"name\": \"men's clothing\",\n        \"description\": null,\n        \"productList\": null,\n        \"deleted\": false\n    },\n    \"imageUrl\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\n    \"isPublic\": null,\n    \"numberOfUnits\": 0,\n    \"deleted\": false\n}"
+				}
+			]
+		}
+	]
+}

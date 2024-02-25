@@ -14,6 +14,7 @@ DELIVERABLES:
 9. How product service interacts with user service for authorization.
 10. How to deploy the application on AWS (Amazon Web Services)
 11. Payment Service (3rd requirement): integrating with 3rd party payment gateways (Razorpay and Stripe)
+12. Notification Service (4th requirement): integrating with 3rd party email service (AWS-SES)
 
 GENERAL NOTES:
 
@@ -217,16 +218,35 @@ DEDICATED CACHING (AWS REDIS CACHE)
  - In a cache you can have different tables for any kind of key-value pairs. For example, within the Product Entity itself, you can have "PRODUCTS" having the key as the product id and the value as the product object. Similarly, you can have "PRODUCTS_BY_NAME" having the key as the product name and the value as the product object, etc.
  - Before starting your service which is using Redis Cache, you need to start the Redis Cache, either on your local system or on aws and configure the same in your application.properties file.
 
+LOGGING AND MONITORING
 
+ - ELK (ElasticSearch Logstash Kibana), Zipkin, Prometheus, Grafana, etc. are some of the tools used for logging and monitoring.
+ - Main use of UUID/TraceId in logs is to distinguish between the logs of different requests.
+ - Log4j2: Log4j 2 is a new and improved version of the Log4j logging framework. The most compelling improvement is the possibility of asynchronous logging. This means that the application can continue to run without waiting for the logging to complete.
+     - Usage: Add the dependency in the pom.xml file. Create a log4j2.xml file in the resources folder. Use the log4j2.xml file to configure the logging. (Follow any article or documentation for the same)
+ - Log Levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+ - Sentry, PagerDuty, CloudWatch, etc. are some of the tools used for monitoring.
+ - P99, P95, P90, P50, etc. are some of the percentiles used for monitoring. For example, P90 means 90% of the requests are served within the specified time.
+     - For eg., If there are 5 requests with response times (in ms) as 39, 2, 40, 52 and 60, then the P80 will be 52. This means 80% of the requests are served within 52ms.
+     - P999 means 99.9% of the requests are served within the specified time. Similarly, P999999 means 99.9999% of the requests are served within the specified time.
+ - Uptime: It is the time for which the application is up and running. For example, if uptime is 99.9%, then the application is up and running for 99.9% of the time.
+ - SLA (Service Level Agreement): It is the agreement between the service provider and the client. It specifies the level of service that the service provider will provide to the client. It specifies the uptime, response time, etc. For example, the service provider will provide 99.9% uptime, 100ms response time, etc.
 
+QUEUE AND NOTIFICATION (EMAILS)
 
-
-
-
-
-
-
-
-
-
-
+ - Queues: Used to store the messages. The messages are stored in the queue (by publishing to a Topic) and then processed by the consumer (by subscribing to that Topic). The messages are processed by the consumer in the order in which they are stored in the queue, i.e, in a first-in-first-out manner.
+ - Topic: A communication channel. It is used to publish and subscribe messages.
+ - Kafka: It is a distributed streaming platform. It is used to publish and subscribe to streams of records, store the records in a fault-tolerant, distributed and scalable way and to process the records in real-time.
+ - AWS SES (Simple Email Service): It is a cloud-based email sending service used to send emails to the users.
+ - Idea behind Notification microservice is to expose APIs (via different channels/topics within a Queue like SMS, whatsapp, email, etc.) as a consumer to other producer microservices like product service, order service, user service, payment service, etc. for sending notifications to the users.
+ - Consumer Groups: It is a way to duplicate a message. The messages in a consumer group only go to one consumer within that group. The messages in a consumer group are distributed in a round-robin manner. In this way, there can be multiple consumer groups for a topic, for different purposes. This means multiple copies of the same message can be sent to different consumer groups. This is how, it is used to scale the consumers.
+ - Microservice can talk to each other either synchronously or asynchronously. Synchronous communication is done via REST APIs. Asynchronous communication is done via messaging queues. For example, if the product service wants to send a notification to the user, then it can send a message to the notification service via a messaging queue. The notification service will then process the message and send the notification to the user.
+ - It is not mandatory to send notification in real-time. For example, if the user places an order, then the order service can send a message to the notification service to send a notification to the user. The notification service can then process the message and send the notification to the user. The user will receive the notification after some time. That's why, asynchronous way of communication between other microservices and notification microservice, is preferred.
+ - When we define a consumer, we use @EventListener(<event-class>) annotation to tell spring that the method is a consumer method to listen to the messages published to the topic.
+ - Structure of the notification microservice:
+    - dtos: SMSMessageDto, EmailMessageDto, WhatsappMessageDto, etc.
+    - consumers: NotificationConsumer, SMSConsumer, EmailConsumer, WhatsappConsumer, etc.
+ - SMTP (Simple Mail Transfer Protocol): It is a protocol used to send emails. It is used to send emails from the sender to the email/SMTP server, and from there, to the receiver. For example, the notification service will have to connect with the SMTP server to send the email to the user. (Follow any documentation to integrate Email with Spring)
+ - Amazon's SES does all the work of connecting with the SMTP server and sending the email to the user. We just need to provide the email details and the email content to the SES. It will then send the email to the user.
+ - CNAME (Canonical Name): It is used to map a domain name to another domain name. The domain owner can create the CNAME record in the domain's DNS settings. For example, if you want to map the domain name "www.example.com" to "swaraj.com", then you can use the CNAME record to map "www.example.com" to "swaraj.com". This can be done only by the domain owner of "www.example.com" and not the domain owner of "swaraj.com".
+ - For producer and consumer microservices, follow any documentation to integrate Kafka with Spring.

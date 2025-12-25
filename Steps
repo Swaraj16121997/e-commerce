@@ -250,3 +250,17 @@ QUEUE AND NOTIFICATION (EMAILS)
  - Amazon's SES does all the work of connecting with the SMTP server and sending the email to the user. We just need to provide the email details and the email content to the SES. It will then send the email to the user.
  - CNAME (Canonical Name): It is used to map a domain name to another domain name. The domain owner can create the CNAME record in the domain's DNS settings. For example, if you want to map the domain name "www.example.com" to "swaraj.com", then you can use the CNAME record to map "www.example.com" to "swaraj.com". This can be done only by the domain owner of "www.example.com" and not the domain owner of "swaraj.com".
  - For producer and consumer microservices, follow any documentation to integrate Kafka with Spring.
+
+SERVICE DISCOVERY (EUREKA)
+
+ - Service Discovery: It is a way to discover the services in a microservices architecture. It is used to register and discover the services. It is used to find the location of the services. It is used to find the instances of the services. It is used to find the health of the services.
+ - Eureka Server: It is a service registry. It is used to register and discover the services. It is used to find the location of the services. It is used to find the instances of the services. It is used to find the health of the services.
+ - Eureka Client: It is a service that registers itself with the Eureka Server. It is used to register and discover the services. It is used to find the location of the services. It is used to find the instances of the services. It is used to find the health of the services.
+ - How Eureka works:
+    1) The Eureka Client registers itself with the Eureka Server.
+    2) The Eureka Server stores the information about the Eureka Client in its registry.
+    3) The Eureka Client sends a heartbeat to the Eureka Server to indicate that it is alive.
+    4) The Eureka Server updates the information about the Eureka Client in its registry.
+    5) The Eureka Client can discover other services registered with the Eureka Server.
+    6) The Eureka Client can make a call to other services registered with the Eureka Server.
+ - Use @LoadBalanced annotation on the RestTemplate bean to tell spring that the RestTemplate is a load balanced RestTemplate. This will enable the RestTemplate to use the Eureka Server to discover the service. When a service wants to call another service, it will use the service name instead of the service URL (for eg. instead of calling http://localhost:8080/products, you need to call http://PRODUCT-SERVICE/products while using restTemplate.getForEntity() or postForEntity()).

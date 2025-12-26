@@ -94,6 +94,7 @@ public class SecurityConfig {   // template of this class is available in the "s
                 .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> {
+                    authorize.requestMatchers("/actuator/**").permitAll();
                     authorize.requestMatchers("/products/*").authenticated();
                     authorize.anyRequest().permitAll();
                 })
